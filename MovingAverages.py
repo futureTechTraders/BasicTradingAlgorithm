@@ -15,11 +15,14 @@ class MovingAverages():
 
     def SimpleMovingAverage():
         timeframe = int(input("How many days is your simple moving average?: "))
+        tickerData['Close'].plot(grid = True)
         print(tickerData['Close'].rolling(window = timeframe).mean())
+        ExponentialMovingAverage(timeframe)
 
 
-    def ExponentialMovingAverage():
+    def ExponentialMovingAverage(timeFrame):
 
-        
+        ema = tickerData['Close'].ewm(span = timeFrame, adjust = False).mean()
+        print(ema)
 
     SimpleMovingAverage() #Test for SMA Method
