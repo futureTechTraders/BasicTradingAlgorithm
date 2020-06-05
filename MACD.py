@@ -46,23 +46,11 @@ class MACD(MovingAverages):
 
     #create an array then convert to column in dataframe
     df['MACD'] = fastperiod.ExponentialMovingAverage() #PlaceHolder values 
-    macd = []
-    for x in range(0,((df['26EMA'].count()) - 1)):
+    for x in range(0,((df['26EMA'].count()))):
         macdCalc = (df['12EMA'].iloc[x]) - (df['26EMA'].iloc[x])
         df['MACD'].iloc[x] = macdCalc
-        macd.append(macdCalc)
         x += 1
 
-
-    fig1, ax = plt.subplots(2, sharex = True)
-    ax[0].plot(df['Close'])
-    ax[0].legend(loc = 'upper left')
-    ax[1].plot(df['MACD'])
-    #ax[1].plot(df['macdsignal'])
-    #ax[1].plot(df['macdhist'])
-    ax[1].legend(loc = 'upper left')
-    plt.suptitle(str(tickerSymbol) + ' Close prices and MACD(12,26,9)')
-    plt.show()
 
     #Code to plot the closing prices, and MACD with signal line --> two seperate plots
     
