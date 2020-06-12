@@ -22,18 +22,13 @@ class TickerDataFrame:
         return tickerData
 
 #Below are the 'messages' that should appear in the app, for each respective element
-#userTicker = input('Please enter your selected stocks ticker: ')
-#period = input('please enter period(EX: 1Y, 9M, 1W, 20D): ')
-#interval = input('please enter interval(EX: 1D): ')
-#start = input('please enter start date in year/month/day(EX: 2019-3-1): ')
-#end = input('please enter end date in year/month/day(EX: 2020-5-1 ): ')
-#timeframe = int(input("How many days is your moving average: "))
-userTicker = str(sys.argv[1])
-period = str(sys.argv[2])
-interval = str(sys.argv[3])
-start = str(sys.argv[4])
-end = str(sys.argv[5])
-timeframe = int(sys.argv[6])
+userTicker = input('Please enter your selected stocks ticker: ')
+period = input('please enter period(EX: 1Y, 9M, 1W, 20D): ')
+interval = input('please enter interval(EX: 1D): ')
+start = input('please enter start date in year/month/day(EX: 2019-3-1): ')
+end = input('please enter end date in year/month/day(EX: 2020-5-1 ): ')
+timeframe = int(input("How many days is your moving average: "))
+
 
 symbol = TickerDataFrame(userTicker, period, interval, start, end)
 tickerData = symbol.createDataFrame()
