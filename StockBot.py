@@ -20,11 +20,21 @@ class TickerDataFrame:
         symbol = yf.Ticker(self.tickerSymbol)
         tickerData = symbol.history(period = self.period, interval = self.interval, start = self.start, end = self.end)#Edit these parameters for user input later
         return tickerData
-userTicker = input('Please enter your selected stocks ticker: ')
-period = input('please enter period(EX: 1Y, 9M, 1W, 20D): ')
-interval = input('please enter interval(EX: 1D): ')
-start = input('please enter start date in year/month/day(EX: 2019-3-1): ')
-end = input('please enter end date in year/month/day(EX: 2020-5-1 ): ')
+
+#Below are the 'messages' that should appear in the app, for each respective element
+#userTicker = input('Please enter your selected stocks ticker: ')
+#period = input('please enter period(EX: 1Y, 9M, 1W, 20D): ')
+#interval = input('please enter interval(EX: 1D): ')
+#start = input('please enter start date in year/month/day(EX: 2019-3-1): ')
+#end = input('please enter end date in year/month/day(EX: 2020-5-1 ): ')
+#timeframe = int(input("How many days is your moving average: "))
+userTicker = str(sys.argv[1])
+period = str(sys.argv[2])
+interval = str(sys.argv[3])
+start = str(sys.argv[4])
+end = str(sys.argv[5])
+timeframe = int(sys.argv[6])
+
 symbol = TickerDataFrame(userTicker, period, interval, start, end)
 tickerData = symbol.createDataFrame()
 class MovingAverages():
@@ -99,7 +109,7 @@ class executeStockBot(macd):
         else:
             print('No position should be taken, as there is no MACD & SMA agreement/consensus')
 
-timeframe = int(input("How many days is your moving average: "))
+
 entryPoints = executeStockBot(timeframe,tickerData)
 entryPoints.calculateEntryPoint()
 
