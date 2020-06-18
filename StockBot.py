@@ -96,6 +96,12 @@ class executeStockBot(macd):
         lastSignalPrice = df['signal'].iloc[((df['signal'].count()) - 1)]
         lastMACDPrice = df['MACD'].iloc[((df['MACD'].count()) - 1)]
 
+        df['MACD'].plot(grid = True, color = 'green')
+        df['signal'].plot(grid = True, color = 'blue')
+        tickerData['EMA'].plot(grid = True, color = 'red')
+        tickerData['SMA'].plot(grid = True, color = 'yellow')
+
+        plt.show()
 
         if((lastClosePrice > smaLastPrice) and ((lastMACDPrice > lastSignalPrice) or (lastMACDPrice > 0))):
             print('Enter a long position at ' + str(lastClosePrice))

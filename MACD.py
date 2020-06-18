@@ -58,8 +58,8 @@ class MACD(MovingAverages):
     df['signal'] = df['MACD'].ewm(span = 9, adjust = False).mean()
 
     plt.plot(df['MACD'])
-    plt.plot(df['signal'])
-    plt.plot(df['Axis'])
+    #plt.plot(df['signal'])
+    #plt.plot(df['Axis'])
     plt.show()
     
 
