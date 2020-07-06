@@ -1,11 +1,19 @@
-import numpy as np  
+import numpy as np
+import sys
 
 
-accountSize = float(input('What is the size of your account?: '))
-accountRisk = input('What is your account risk, please enter as a %: ')
-targetPrice = float(input('What is your target price?: '))
-entryPrice = float(input('Entry Price?: '))
-stopLoss = float(input('What is your stop loss level(price)?: '))
+#accountSize = float(input('What is the size of your account?: '))
+#accountRisk = input('What is your account risk, please enter as a %: ')
+#targetPrice = float(input('What is your target price?: '))
+#entryPrice = float(input('Entry Price?: '))
+#stopLoss = float(input('What is your stop loss level(price)?: '))
+
+accountSize = sys.argv[2]
+accountRisk = sys.argv[3]
+targetPrice = sys.argv[4]
+entryPrice = sys.argv[5]
+stopLoss = sys.argv[6]
+
 
 class UserRiskAssesment:
     def positionLevels():
